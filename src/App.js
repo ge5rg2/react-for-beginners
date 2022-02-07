@@ -36,7 +36,7 @@ function App() {
       ) : (
         <div>
           <form>
-            <button onClick={handleBuyClick}>Buy</button>
+            <button onClick={handleBuyClick}>Buy Coins</button>
             <button onClick={handlePriceClick}>Market price</button>
           </form>
           {buy ? (
@@ -53,26 +53,27 @@ function App() {
               </form>
               <hr />
               <h3>You can buy...</h3>
-              <ul>
+              <select>
                 {coins.map((coin) => (
-                  <li key={coin.id}>
-                    {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
-                  </li>
+                  <option key={coin.id}>
+                    {money / coin.quotes.USD.price} / {coin.name} ({coin.symbol}
+                    )
+                  </option>
                 ))}
-              </ul>
+              </select>
             </div>
           ) : null}
           {price ? (
             <div>
               <h3>Market Price</h3>
               <hr />
-              <ul>
+              <select>
                 {coins.map((coin) => (
-                  <li key={coin.id}>
+                  <option key={coin.id}>
                     {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
-                  </li>
+                  </option>
                 ))}
-              </ul>
+              </select>
             </div>
           ) : null}
         </div>
