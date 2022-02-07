@@ -3,6 +3,18 @@ import { useEffect, useState } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
+  const [buy, setBuy] = useState(false);
+  const handleBuyClick = (event) => {
+    event.preventDefault();
+    setBuy((current) => !current);
+    setPrice(false);
+  };
+  const [price, setPrice] = useState(false);
+  const handlePriceClick = (event) => {
+    event.preventDefault();
+    setPrice((current) => !current);
+    setBuy(false);
+  };
   const [money, setMoney] = useState(0);
   const saveMoneyValue = (event) => {
     setMoney(event.target.value);
@@ -23,25 +35,46 @@ function App() {
         <strong>Loading...</strong>
       ) : (
         <div>
-          <h3>How much do you have?</h3>
           <form>
-            <input
-              onChange={saveMoneyValue}
-              value={money}
-              type="number"
-              min="0"
-            />
-            {" $"}
+            <button onClick={handleBuyClick}>Buy</button>
+            <button onClick={handlePriceClick}>Market price</button>
           </form>
-          <hr />
-          <h3>You can buy...</h3>
-          <ul>
-            {coins.map((coin) => (
-              <li key={coin.id}>
-                {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
-              </li>
-            ))}
-          </ul>
+          {buy ? (
+            <div>
+              <h3>How much do you have?</h3>
+              <form>
+                <input
+                  onChange={saveMoneyValue}
+                  value={money}
+                  type="number"
+                  min="0"
+                />
+                {" $"}
+              </form>
+              <hr />
+              <h3>You can buy...</h3>
+              <ul>
+                {coins.map((coin) => (
+                  <li key={coin.id}>
+                    {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          {price ? (
+            <div>
+              <h3>Market Price</h3>
+              <hr />
+              <ul>
+                {coins.map((coin) => (
+                  <li key={coin.id}>
+                    {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
       )}
     </div>
