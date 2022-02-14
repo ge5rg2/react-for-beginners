@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MovieDetail from "../components/MovieDetail";
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -22,13 +23,15 @@ const Detail = () => {
   ) : (
     <div>
       {movies.map((movie) => (
-        <div key={movie.id}>
-          <img alt={movie.title} src={movie.background_image_original}></img>
-          <h1>{movie.title_long}</h1>
-          <p>{movie.description_full}</p>
-          <div>Rating : {movie.rating}</div>
-          <div>Runtime : {movie.runtime}</div>
-        </div>
+        <MovieDetail
+          key={movie.id}
+          title={movie.title}
+          bkImage={movie.background_image_original}
+          longTitle={movie.title_long}
+          summary={movie.description_full}
+          rating={movie.rating}
+          runtime={movie.runtime}
+        />
       ))}
     </div>
   );
