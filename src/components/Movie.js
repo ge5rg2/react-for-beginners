@@ -4,16 +4,20 @@ import styles from "../css/Movie.module.css";
 
 const Movie = ({ year, id, coverImage, title, summary, genres }) => {
   return (
-    <div>
-      <img src={coverImage} alt={title} />
-      <h2>
-        <Link to={`/movie/${id}`} className={styles.title}>
-          {title}
-        </Link>
-      </h2>
-      <h3>{year}</h3>
-      <p>{summary}</p>
-      <ul>{genres == null ? "" : genres.map((i) => <li key={i}>{i}</li>)}</ul>
+    <div className={styles.main}>
+      <div className={styles.poster}>
+        <img src={coverImage} alt={title} />
+      </div>
+      <div className={styles.text}>
+        <h2>
+          <Link to={`/movie/${id}`} className={styles.title}>
+            {title}
+          </Link>
+        </h2>
+        <h3>{year}</h3>
+        <p className={styles.summary}>{summary}</p>
+        <ul>{genres == null ? "" : genres.map((i) => <li key={i}>{i}</li>)}</ul>
+      </div>
     </div>
   );
 };

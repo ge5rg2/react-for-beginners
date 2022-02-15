@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import styles from "../css/Movie.module.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -22,9 +23,9 @@ const Home = () => {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
+        <div className={styles.body}>
           {movies.map((movie) =>
-            movie.year >= 2018 ? (
+            movie.year >= 2020 ? (
               ""
             ) : (
               <Movie
