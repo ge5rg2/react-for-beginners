@@ -23,18 +23,22 @@ const Home = () => {
         <h1>Loading...</h1>
       ) : (
         <div>
-          {movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              coverImage={movie.medium_cover_image}
-              title={movie.title}
-              year={movie.year}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))}
-        </div>
+          {movies.map((movie) =>
+            movie.year >= 2018 ? (
+              ""
+            ) : (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                coverImage={movie.medium_cover_image}
+                title={movie.title}
+                year={movie.year}
+                summary={movie.summary}
+                genres={movie.genres}
+              />
+            )
+          )}
+        </div> /* 2022년 최신 영화는 적은 평가점수에도 순위에 올라와 있어서 2018년 기준으로함 */
       )}
     </div>
   );
