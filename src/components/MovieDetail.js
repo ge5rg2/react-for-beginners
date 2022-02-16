@@ -1,5 +1,8 @@
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styles from "../css/MovieDetail.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const MovieDetail = ({
   title,
@@ -10,17 +13,23 @@ const MovieDetail = ({
   runtime,
 }) => {
   return (
-    <div>
-      <div>
+    <div className={styles.detailMain}>
+      <div className={styles.homeMain}>
         <h2>
-          <Link to={`/`}>Home</Link>
+          <Link className={styles.home} to={`/`}>
+            <FontAwesomeIcon icon={faHouse} />
+          </Link>
         </h2>
       </div>
-      <img alt={title} src={bkImage}></img>
-      <h1>{longTitle}</h1>
-      <p>{summary}</p>
-      <div>Rating : {rating}/10</div>
-      <div>Runtime : {runtime}min</div>
+      <h1 className={styles.detailTitle}>{longTitle}</h1>
+      <div className={styles.detailImg}>
+        <img alt={title} src={bkImage}></img>
+      </div>
+      <div className={styles.detailSummary}>
+        <div>{summary}</div>
+        <h3>Rating : {rating}/10</h3>
+        <h4>Runtime : {runtime}min</h4>
+      </div>
     </div>
   );
 };
