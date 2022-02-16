@@ -11,6 +11,7 @@ const MovieDetail = ({
   summary,
   rating,
   runtime,
+  genres,
 }) => {
   return (
     <div className={styles.detailMain}>
@@ -27,8 +28,8 @@ const MovieDetail = ({
       </div>
       <div className={styles.detailSummary}>
         <div>{summary}</div>
-        <h3>Rating : {rating}/10</h3>
-        <h4>Runtime : {runtime}min</h4>
+        <h3>Rating: {rating} / 10</h3>
+        <h4>Runtime: {runtime} min</h4>
       </div>
     </div>
   );

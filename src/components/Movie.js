@@ -14,9 +14,10 @@ const Movie = ({ year, id, coverImage, title, summary, genres }) => {
             {title}
           </Link>
         </h2>
-        <h3>{year}</h3>
         <p className={styles.summary}>{summary}</p>
-        <ul>{genres == null ? "" : genres.map((i) => <li key={i}>{i}</li>)}</ul>
+        <span>
+          {genres == null ? "" : genres.map((i) => <div key={i}>- {i}</div>)}
+        </span>
       </div>
     </div>
   );

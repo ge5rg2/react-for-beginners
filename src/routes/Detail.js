@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieDetail from "../components/MovieDetail";
+import styles from "../css/Movie.module.css";
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -19,7 +20,7 @@ const Detail = () => {
     getMovie();
   }, [getMovie]);
   return loading ? (
-    <h1>Loading...</h1>
+    <div className={styles.loading}></div>
   ) : (
     <div>
       {movies.map((movie) => (
@@ -31,6 +32,7 @@ const Detail = () => {
           summary={movie.description_full}
           rating={movie.rating}
           runtime={movie.runtime}
+          genres={movie.genres}
         />
       ))}
     </div>
