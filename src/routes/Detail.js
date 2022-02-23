@@ -22,7 +22,7 @@ const Detail = () => {
   return loading ? (
     <div className={styles.loading}></div>
   ) : (
-    <div>
+    <div className={styles.detail__center}>
       {movies.map((movie) => (
         <MovieDetail
           key={movie.id}

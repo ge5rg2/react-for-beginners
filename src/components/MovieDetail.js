@@ -11,7 +11,6 @@ const MovieDetail = ({
   summary,
   rating,
   runtime,
-  genres,
 }) => {
   return (
     <div className={styles.detailMain}>

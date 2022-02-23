@@ -88,3 +88,8 @@
     -webkit-transform: rotate(360deg);
   }
 }
+
+.detail__center {
+  display: flex;
+  justify-content: center;
+}
