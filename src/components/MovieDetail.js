@@ -27,7 +27,9 @@ const MovieDetail = ({
         <img alt={title} src={bkImage}></img>
       </div>
       <div className={styles.detailSummary}>
-        <div>{summary}</div>
+        <div>
+          {summary.length > 290 ? `${summary.slice(0, 290)}...` : summary}
+        </div>
         <h3>Rating: {rating} / 10</h3>
         <h4>Runtime: {runtime} min</h4>
       </div>

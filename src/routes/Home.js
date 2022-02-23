@@ -25,7 +25,7 @@ const Home = () => {
       ) : (
         <div className={styles.body}>
           {movies.map((movie) =>
-            movie.year >= 2020 ? (
+            movie.year >= 2021 ? (
               ""
             ) : (
               <Movie
